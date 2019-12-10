@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+  <t t-name="devtools.details_window" owl="1">
+    <div class="details_window my-1">
+      <div id="details_window_head" class="details-panel my-1">
+        <div class="name_wrapper">
+          <b><t t-esc="componentName"/></b>
+        </div>
+      </div>
+      <div class="horizontal-border">
+      </div>
+      <div id="props" class="details-panel my-1">
+        <b>props</b>
+        <t t-foreach="activeProperties" t-as="key" t-key="key">
+          <ObjectTreeElement 
+            t-props="activeProperties[key]"
+            updateObjectTreeElement="props.updateObjectTreeElement"
+            updateBag="props.updateBag"
+            editReactiveState="props.editReactiveState"/>
+        </t>
+      </div>
+      <div class="horizontal-border">
+      </div>
+      <div id="hooks" class="details-panel my-1">
+        <b>hooks</b>
+      </div>
+      <div class="horizontal-border">
+      </div>
+      <div id="subscriptions" class="details-panel my-1">
+        <Subscriptions 
+          subscriptions="activeSubscriptions" 
+          updateObjectTreeElement="props.updateObjectTreeElement"
+          updateBag="props.updateBag"
+          expandSubscriptionsKeys="props.expandSubscriptionsKeys"
+          editReactiveState="props.editReactiveState"/>
+      </div>
+    </div>
+  </t>
+</templates>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+  <t t-name="devtools.components_tree" owl="1">
+    <div id="container" t-on-mouseover.stop="removeHighlight" t-on-mouseout.stop="removeHighlight">
+      <div class="split-screen-container">
+        <div class="split-screen-left"  t-attf-style="width:calc({{state.splitPosition}}% - 1px);">
+          <div class="details-panel my-1">
+            Search bar
+          </div>
+          <div class="horizontal-border">
+          </div>
+          <TreeElement 
+            t-props="root"
+            updateComponent.bind="updateTree"
+            selectComponent.bind="selectComponent"/> 
+        </div>
+        <div
+          class="split-screen-border"
+          t-attf-style="left:calc({{state.splitPosition}}% - 1px);"
+          t-on-mousedown="handleMouseDown"
+          t-on-mouseup="handleMouseUp"
+        />
+        <div class="split-screen-right" t-attf-style="width:calc({{100 - state.splitPosition}}%);">
+          <DetailsWindow 
+            activeComponent="activeComponent"
+            updateObjectTreeElement.bind="updateObjectTreeElements"
+            updateBag.bind="updateExpandBag"
+            expandSubscriptionsKeys.bind="expandSubscriptionsKeys"
+            editReactiveState.bind="editReactiveState"/>
+        </div>
+      </div>
+    </div>
+  </t>
+</templates>

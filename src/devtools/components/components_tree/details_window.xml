@@ -14,11 +14,12 @@
       <div class="horizontal-border">
       </div>
       <div class="details-container">
-        <div id="props" style="border: none;" class="details-panel py-1">
-          <div class="details-panel-head">
+        <div id="props" class="details-panel">
+          <div class="details-panel-head" t-attf-style="width: {{props.width}}px; border: none;">
             <b>props</b>
-            <i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("props")'></i>
+            <i class="fa fa-bug utility-icon pt-1" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("props")'></i>
           </div>
+          <div class="details-panel-margin"/>
           <t t-foreach="props.activeComponent.props" t-as="key" t-key="key">
             <ObjectTreeElement 
               t-props="props.activeComponent.props[key]"
@@ -32,11 +33,12 @@
         <div id="hooks" class="details-panel py-1">
           <b>hooks</b>
         </div> -->
-        <div id="subscriptions" class="details-panel pt-1">
-          <div class="details-panel-head">
+        <div id="subscriptions" class="details-panel">
+          <div class="details-panel-head" t-attf-style="width: {{props.width}}px;">
             <b>subscriptions</b>
-            <i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("subscription")'></i>
+            <i class="fa fa-bug utility-icon pt-1" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("subscription")'></i>
           </div>
+          <div class="details-panel-margin"/>
           <Subscriptions 
             subscriptions="props.activeComponent.subscriptions" 
             updateObjectTreeElement="props.updateObjectTreeElement"
@@ -44,11 +46,12 @@
             expandSubscriptionsKeys="props.expandSubscriptionsKeys"
             editObjectTreeElement="props.editObjectTreeElement"/>
         </div>
-        <div id="env" class="details-panel py-1">
-          <div class="details-panel-head">
+        <div id="env" class="details-panel pb-1">
+          <div class="details-panel-head" t-attf-style="width: {{props.width}}px;">
             <b>env</b>
-            <i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("env")'></i>
+            <i class="fa fa-bug utility-icon pt-1" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("env")'></i>
           </div>
+          <div class="details-panel-margin"/>
           <t t-foreach="props.activeComponent.env" t-as="key" t-key="key">
             <ObjectTreeElement 
               t-props="props.activeComponent.env[key]"
@@ -57,11 +60,12 @@
               editObjectTreeElement="props.editObjectTreeElement"/>
           </t>
         </div>
-        <div id="instance" class="details-panel py-1">
-          <div class="details-panel-head">
+        <div id="instance" class="details-panel">
+          <div class="details-panel-head" t-attf-style="width: {{props.width}}px;">
             <b>instance</b>
-            <i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("instance")'></i>
+            <i class="fa fa-bug utility-icon pt-1" aria-hidden="true" t-on-click.stop='() => this.logComponentInConsole("instance")'></i>
           </div>
+          <div class="details-panel-margin"/>
           <t t-foreach="props.activeComponent.instance" t-as="key" t-key="key">
             <ObjectTreeElement 
               t-props="props.activeComponent.instance[key]"

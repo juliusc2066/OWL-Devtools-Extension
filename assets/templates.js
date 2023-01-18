@@ -34,11 +34,11 @@ App.registerTemplate("devtools.DetailsWindow", function devtools_DetailsWindow(a
   const comp3 = app.createComponent(`ObjectTreeElement`, true, false, true, false);
   const comp4 = app.createComponent(`ObjectTreeElement`, true, false, true, false);
   
-  let block1 = createBlock(`<div class="details_window"><div id="details_window_head" class="panel-top"><div class="name_wrapper"><b><block-text-0/></b></div><i class="fa fa-eye utility-icon me-2" aria-hidden="true" block-handler-1="click.stop"/><i class="fa fa-bug utility-icon me-2" aria-hidden="true" block-handler-2="click.stop"/><i class="fa fa-file-code-o utility-icon me-2" aria-hidden="true" block-handler-3="click.stop"/><i class="fa fa-refresh utility-icon me-2" aria-hidden="true" block-handler-4="click.stop"/></div><div class="horizontal-border"/><div class="details-container"><div id="props" style="border: none;" class="details-panel py-1"><div class="details-panel-head"><b>props</b><i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" block-handler-5="click.stop"/></div><block-child-0/></div><!-- <div class="horizontal-border">
+  let block1 = createBlock(`<div class="details_window"><div id="details_window_head" class="panel-top"><div class="name_wrapper"><b><block-text-0/></b></div><i class="fa fa-eye utility-icon me-2" aria-hidden="true" block-handler-1="click.stop"/><i class="fa fa-bug utility-icon me-2" aria-hidden="true" block-handler-2="click.stop"/><i class="fa fa-file-code-o utility-icon me-2" aria-hidden="true" block-handler-3="click.stop"/><i class="fa fa-refresh utility-icon me-2" aria-hidden="true" block-handler-4="click.stop"/></div><div class="horizontal-border"/><div class="details-container"><div id="props" class="details-panel"><div class="details-panel-head" block-attribute-5="style"><b>props</b><i class="fa fa-bug utility-icon pt-1" aria-hidden="true" block-handler-6="click.stop"/></div><div class="details-panel-margin"/><block-child-0/></div><!-- <div class="horizontal-border">
         </div>
         <div id="hooks" class="details-panel py-1">
           <b>hooks</b>
-        </div> --><div id="subscriptions" class="details-panel pt-1"><div class="details-panel-head"><b>subscriptions</b><i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" block-handler-6="click.stop"/></div><block-child-1/></div><div id="env" class="details-panel py-1"><div class="details-panel-head"><b>env</b><i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" block-handler-7="click.stop"/></div><block-child-2/></div><div id="instance" class="details-panel py-1"><div class="details-panel-head"><b>instance</b><i class="fa fa-bug utility-icon pt-1 me-2" aria-hidden="true" block-handler-8="click.stop"/></div><block-child-3/></div></div></div>`);
+        </div> --><div id="subscriptions" class="details-panel"><div class="details-panel-head" block-attribute-7="style"><b>subscriptions</b><i class="fa fa-bug utility-icon pt-1" aria-hidden="true" block-handler-8="click.stop"/></div><div class="details-panel-margin"/><block-child-1/></div><div id="env" class="details-panel pb-1"><div class="details-panel-head" block-attribute-9="style"><b>env</b><i class="fa fa-bug utility-icon pt-1" aria-hidden="true" block-handler-10="click.stop"/></div><div class="details-panel-margin"/><block-child-2/></div><div id="instance" class="details-panel"><div class="details-panel-head" block-attribute-11="style"><b>instance</b><i class="fa fa-bug utility-icon pt-1" aria-hidden="true" block-handler-12="click.stop"/></div><div class="details-panel-margin"/><block-child-3/></div></div></div>`);
   
   return function template(ctx, node, key = "") {
     let txt1 = ctx['props'].activeComponent.name;
@@ -46,6 +46,7 @@ App.registerTemplate("devtools.DetailsWindow", function devtools_DetailsWindow(a
     let hdlr2 = ["stop", ()=>this.logComponentInConsole("component"), ctx];
     let hdlr3 = ["stop", ctx['inspectComponentSource'], ctx];
     let hdlr4 = ["stop", ctx['refreshComponent'], ctx];
+    let attr1 = `width: ${ctx['props'].width}px; border: none;`;
     let hdlr5 = ["stop", ()=>this.logComponentInConsole("props"), ctx];
     ctx = Object.create(ctx);
     const [k_block2, v_block2, l_block2, c_block2] = prepareList(ctx['props'].activeComponent.props);;
@@ -56,8 +57,10 @@ App.registerTemplate("devtools.DetailsWindow", function devtools_DetailsWindow(a
     }
     ctx = ctx.__proto__;
     const b2 = list(c_block2);
+    let attr2 = `width: ${ctx['props'].width}px;`;
     let hdlr6 = ["stop", ()=>this.logComponentInConsole("subscription"), ctx];
     const b4 = comp2({subscriptions: ctx['props'].activeComponent.subscriptions,updateObjectTreeElement: ctx['props'].updateObjectTreeElement,updateBag: ctx['props'].updateBag,expandSubscriptionsKeys: ctx['props'].expandSubscriptionsKeys,editObjectTreeElement: ctx['props'].editObjectTreeElement}, key + `__2`, node, this, null);
+    let attr3 = `width: ${ctx['props'].width}px;`;
     let hdlr7 = ["stop", ()=>this.logComponentInConsole("env"), ctx];
     ctx = Object.create(ctx);
     const [k_block5, v_block5, l_block5, c_block5] = prepareList(ctx['props'].activeComponent.env);;
@@ -68,6 +71,7 @@ App.registerTemplate("devtools.DetailsWindow", function devtools_DetailsWindow(a
     }
     ctx = ctx.__proto__;
     const b5 = list(c_block5);
+    let attr4 = `width: ${ctx['props'].width}px;`;
     let hdlr8 = ["stop", ()=>this.logComponentInConsole("instance"), ctx];
     ctx = Object.create(ctx);
     const [k_block7, v_block7, l_block7, c_block7] = prepareList(ctx['props'].activeComponent.instance);;
@@ -77,7 +81,7 @@ App.registerTemplate("devtools.DetailsWindow", function devtools_DetailsWindow(a
       c_block7[i1] = withKey(comp4(Object.assign({}, ctx['props'].activeComponent.instance[ctx['key']], {updateObjectTreeElement: ctx['props'].updateObjectTreeElement,updateBag: ctx['props'].updateBag,editObjectTreeElement: ctx['props'].editObjectTreeElement}), key + `__4__${key1}`, node, this, null), key1);
     }
     const b7 = list(c_block7);
-    return block1([txt1, hdlr1, hdlr2, hdlr3, hdlr4, hdlr5, hdlr6, hdlr7, hdlr8], [b2, b4, b5, b7]);
+    return block1([txt1, hdlr1, hdlr2, hdlr3, hdlr4, attr1, hdlr5, attr2, hdlr6, attr3, hdlr7, attr4, hdlr8], [b2, b4, b5, b7]);
   }
 });
 
@@ -87,7 +91,7 @@ App.registerTemplate("devtools.ObjectTreeElement", function devtools_ObjectTreeE
   let { safeOutput, prepareList, withKey } = helpers;
   const comp1 = app.createComponent(`ObjectTreeElement`, true, false, true, false);
   
-  let block2 = createBlock(`<div class="my-0 p-0 object-line" block-attribute-0="style" block-handler-1="click.stop"><div block-attribute-2="style"><block-child-0/><block-child-1/><block-child-2/>: <div class="object-content" block-handler-3="dblclick.stop"><block-child-3/><block-child-4/><block-child-4/></div></div></div>`);
+  let block2 = createBlock(`<div class="my-0 object-line" block-attribute-0="style" block-handler-1="click.stop"><div block-attribute-2="style"><block-child-0/><block-child-1/><block-child-2/>: <div class="object-content" block-handler-3="dblclick.stop"><block-child-3/><block-child-4/><block-child-4/></div></div></div>`);
   let block3 = createBlock(`<i class="fa fa-caret-right mx-1" block-attribute-0="style"/>`);
   let block4 = createBlock(`<i class="fa fa-caret-right mx-1" block-attribute-0="style"/>`);
   let block6 = createBlock(`<input block-attribute-0="id" type="text" style="width: 100%;" placeholder="" block-attribute-1="value" block-handler-2="keyup"/>`);
@@ -175,8 +179,8 @@ App.registerTemplate("devtools.Subscriptions", function devtools_Subscriptions(a
   const comp1 = app.createComponent(`ObjectTreeElement`, true, false, true, false);
   
   let block1 = createBlock(`<div id="subscriptions_panel"><block-child-0/></div>`);
-  let block3 = createBlock(`<div class="my-2"><div class="my-0 p-0 object-line" block-handler-0="click.stop"><div style="transform: translateX(calc(0.3rem))"><i class="fa fa-caret-right ms-1" block-attribute-1="style"/> keys: <block-child-0/></div></div><block-child-1/><block-child-2/></div>`);
-  let block6 = createBlock(`<div class="my-0 p-0 object-line" block-attribute-0="style"><div style="transform: translateX(calc(1.1rem))" class="key-content"><i class="fa fa-caret-right mx-1" block-attribute-1="style"/><block-child-0/></div></div>`);
+  let block3 = createBlock(`<div class="my-2"><div class="my-0 object-line" block-handler-0="click.stop"><div style="transform: translateX(calc(0.3rem))"><i class="fa fa-caret-right ms-1" block-attribute-1="style"/> keys: <block-child-0/></div></div><block-child-1/><block-child-2/></div>`);
+  let block6 = createBlock(`<div class="my-0 object-line" block-attribute-0="style"><div style="transform: translateX(calc(1.1rem))" class="key-content"><i class="fa fa-caret-right mx-1" block-attribute-1="style"/><block-child-0/></div></div>`);
   
   return function template(ctx, node, key = "") {
     ctx = Object.create(ctx);

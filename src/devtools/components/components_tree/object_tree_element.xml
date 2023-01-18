@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
   <t t-name="devtools.ObjectTreeElement" owl="1">
-    <div class="my-0 p-0 object-line" t-attf-style="display: {{props.display ? 'flex' : 'none'}}" t-on-click.stop="toggleDisplay">
+    <div class="my-0 object-line" t-attf-style="display: {{props.display ? 'flex' : 'none'}}" t-on-click.stop="toggleDisplay">
       <div t-attf-style="transform: translateX(calc({{props.depth}} * 0.8rem + 0.3rem))">
         <t t-if="props.hasChildren">
           <i class="fa fa-caret-right mx-1" t-attf-style="cursor: pointer;{{props.toggled ? 'transform: rotate(90deg);' : ''}}"></i>

@@ -40,6 +40,7 @@
   white-space: nowrap;
   width: 100%;
   margin: 0px;
+  padding-left: 0.6rem;
 }
 
 .object-content {
@@ -86,12 +87,24 @@
 }
 
 .details-panel {
-  padding-left: 0.5rem !important;
-  border-top: 2px solid lightgrey;
+  padding: 0;
 }
 
 .details-panel-head {
-  position: relative;
+  position: fixed;
+  border-top: 2px solid lightgrey;
+  margin: 0;
+  padding: 5px 7px;
+}
+
+.details-panel-head:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.details-panel-margin {
+  margin-top: 27px;
 }
 
 .component_highlighted {
